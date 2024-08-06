@@ -27,10 +27,11 @@ function selectRandomWord() {
 
 function handleInput(event) {
   const char = event.key.toLowerCase(); 
+  const spans = wordDiv.querySelectorAll("span");
 
   if (char === currentWord[currentIndex]) {
-    const spans = wordDiv.querySelectorAll("span");
     spans[currentIndex].classList.remove("hidden"); 
+    spans[currentIndex].classList.remove("w"); 
     spans[currentIndex].classList.add("c"); 
 
     currentIndex++;
@@ -44,7 +45,6 @@ function handleInput(event) {
   } else {
     mistakes++;
     wordMistakes.textContent = mistakes;
-    const spans = wordDiv.querySelectorAll("span");
     spans[currentIndex].classList.add("w"); 
   }
 }
